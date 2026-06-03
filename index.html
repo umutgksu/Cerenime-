@@ -12,7 +12,6 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* 🌙 GENEL ARKA PLAN */
 body{
 font-family:'Segoe UI';
 background: linear-gradient(180deg, #0d1b2a, #1b263b, #415a77);
@@ -23,14 +22,40 @@ justify-content:center;
 padding:30px 15px;
 }
 
-/* 💜 KALPLER */
+/* 💥 INTRO */
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#intro h1{
+color:#a78bfa;
+font-size:34px;
+text-shadow:0 0 20px #7c4dff;
+animation:fade 1.5s ease;
+}
+
+@keyframes fade{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* 💜 KALP & YILDIZ */
 .heart{
 position:fixed;
 bottom:-20px;
 color:#b388ff;
 text-shadow:0 0 10px #b388ff,0 0 25px #7c4dff;
-font-size:22px;
-animation:floatUp 6s linear infinite;
+font-size:20px;
+animation:floatUp 7s linear infinite;
 opacity:1;
 }
 
@@ -40,12 +65,11 @@ opacity:1;
 100%{transform:translateY(-120vh);opacity:0;}
 }
 
-/* ✨ YILDIZLAR */
 .star{
 position:fixed;
 color:#d1c4ff;
 text-shadow:0 0 10px #ffffff,0 0 20px #b388ff;
-font-size:14px;
+font-size:12px;
 animation:twinkle 3s infinite;
 opacity:0.9;
 }
@@ -54,55 +78,7 @@ opacity:0.9;
 50%{opacity:0.3; transform:scale(1.3);}
 }
 
-/* ========================= */
-/* 💥 INTRO SCREEN (YENİ) */
-/* ========================= */
-
-#intro{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#050816;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:9999;
-overflow:hidden;
-}
-
-#intro h1{
-color:#a78bfa;
-font-size:32px;
-animation:fadeIn 1.5s ease;
-text-shadow:0 0 20px #7c4dff;
-}
-
-@keyframes fadeIn{
-from{opacity:0; transform:scale(0.8);}
-to{opacity:1; transform:scale(1);}
-}
-
-/* intro kalpler */
-.intro-heart{
-position:absolute;
-color:#b388ff;
-font-size:20px;
-animation:rise 3s linear forwards;
-opacity:1;
-}
-
-@keyframes rise{
-0%{transform:translateY(0);opacity:1;}
-100%{transform:translateY(-200px);opacity:0;}
-}
-
-/* ========================= */
-/* MAIN CONTENT */
-/* ========================= */
-
+/* 💎 CONTAINER */
 .container{
 max-width:550px;
 width:100%;
@@ -120,81 +96,40 @@ color:#a78bfa;
 margin-bottom:10px;
 }
 
-/* SLIDER BAŞLIK */
-.section-title{
-margin:15px 0;
-font-size:18px;
+/* ALT BAŞLIK */
+.subtitle{
+margin:10px 0;
 color:#d8b4fe;
-text-shadow:0 0 10px #7c4dff;
 }
 
-/* TYPEWRITER */
-.typewriter{
-overflow:hidden;
-white-space:nowrap;
-border-right:2px solid #b388ff;
-width:0;
-animation:typing 4s steps(30,end) forwards, blink .8s infinite;
-}
-
-@keyframes typing{
-from{width:0;}
-to{width:100%;}
-}
-
-@keyframes blink{
-50%{border-color:transparent;}
-}
-
-/* SLIDER */
-.slider{
-position:relative;
-overflow:hidden;
-border-radius:15px;
+/* 📸 GALERİ */
+.gallery{
+display:flex;
+flex-direction:column;
+gap:15px;
 margin-top:10px;
 }
 
-.slides{
-display:flex;
-transition:transform 0.5s ease-in-out;
-}
-
-.slides img{
+.gallery img{
 width:100%;
 height:350px;
 object-fit:cover;
-flex-shrink:0;
 border-radius:15px;
 }
 
-/* OKLAR */
-.btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(124,77,255,0.5);
-border:none;
-color:white;
-padding:10px;
-cursor:pointer;
-font-size:18px;
-border-radius:8px;
-}
-
-.prev{left:10px;}
-.next{right:10px;}
-
-/* MESAJ */
+/* 💬 MESAJ */
 .message{
 margin-top:20px;
-line-height:1.6;
+line-height:1.7;
 color:#e0e0e0;
+text-align:left;
 }
 
 .signature{
 margin-top:20px;
 color:#a78bfa;
 font-weight:bold;
+text-align:center;
 }
 </style>
 </head>
@@ -206,71 +141,13 @@ font-weight:bold;
 <h1>Ceren ❤️</h1>
 </div>
 
-<!-- 💜 MAIN -->
-<div class="container">
+<!-- 🎵 MÜZİK -->
+<audio autoplay loop controls>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<h1>Ceren ❤️</h1>
-
-<p>Bu sayfayı sadece senin için hazırladım.</p>
-
-<div class="section-title typewriter">
-Anılarımız ve nicelerine 💜
-</div>
-
-<!-- SLIDER -->
-<div class="slider">
-<button class="btn prev" onclick="prev()">❮</button>
-
-<div class="slides" id="slides">
-
-<img src="IMG_4355.jpeg">
-<img src="IMG_5516.png">
-<img src="8EA530C6-B4A0-436F-AFE1-9A8E8A2EA225.png">
-<img src="6ca7babd-6ae1-4cb3-90d3-aabbb54c514a.jpeg">
-<img src="82646d45-29de-4fde-b956-3f883f35ceef.jpeg">
-
-</div>
-
-<button class="btn next" onclick="next()">❯</button>
-</div>
-
-<p class="message">
-Ceren; bu mesaj...
-(aynı metin burada)
-</p>
-
-<div class="signature">❤️ Umut</div>
-
-</div>
-
+<!-- 💜 KALPLER + YILDIZLAR -->
 <script>
-
-/* 💥 INTRO KALPLER */
-const intro=document.getElementById("intro");
-
-function createIntroHeart(){
-let h=document.createElement("div");
-h.className="intro-heart";
-h.innerHTML="💜";
-h.style.left=Math.random()*100+"vw";
-h.style.top=Math.random()*100+"vh";
-h.style.fontSize=(15+Math.random()*20)+"px";
-intro.appendChild(h);
-
-setTimeout(()=>h.remove(),3000);
-}
-
-let introInterval=setInterval(createIntroHeart,150);
-
-/* 3.5 saniye sonra intro kapanır */
-setTimeout(()=>{
-clearInterval(introInterval);
-intro.style.opacity="0";
-setTimeout(()=>intro.remove(),800);
-},3500);
-
-
-/* main kalpler + yıldızlar */
 for(let i=0;i<60;i++){
 let h=document.createElement("div");
 h.className="heart";
@@ -280,7 +157,7 @@ h.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(h);
 }
 
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
 let s=document.createElement("div");
 s.className="star";
 s.innerHTML="✦";
@@ -289,26 +166,51 @@ s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
 
-/* slider */
-let i=0;
-const slides=document.getElementById("slides");
-const total=slides.children.length;
-
-function update(){
-slides.style.transform=`translateX(${-i*100}%)`;
-}
-
-function next(){
-i=(i+1)%total;
-update();
-}
-
-function prev(){
-i=(i-1+total)%total;
-update();
-}
-
+/* intro kapat */
+setTimeout(()=>{
+document.getElementById("intro").style.display="none";
+},3000);
 </script>
+
+<!-- 💎 MAIN -->
+<div class="container">
+
+<h1>Ceren ❤️</h1>
+<p class="subtitle">Bu sayfayı sadece senin için hazırladım.</p>
+
+<!-- 📸 FOTOĞRAFLAR -->
+<div class="gallery">
+
+<img src="IMG_4355.jpeg">
+<img src="IMG_5516.png">
+<img src="8EA530C6-B4A0-436F-AFE1-9A8E8A2EA225.png">
+<img src="6ca7babd-6ae1-4cb3-90d3-aabbb54c514a.jpeg">
+<img src="82646d45-29de-4fde-b956-3f883f35ceef.jpeg">
+
+</div>
+
+<!-- 💬 TAM MESAJ -->
+<p class="message">
+Ceren;<br><br>
+
+Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
+
+Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum. O anlarda ne düşündüğüm ya da neden yaptığım önemli değil; sonuçta seni üzdüm ve bunun sorumluluğu tamamen bana ait.<br><br>
+
+Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini daha iyi anladım. Ama bunu yaşamak zorunda bırakmamam gerekiyordu. Keşke sana sevgimi sözlerle değil, davranışlarımla daha iyi gösterebilseydim.<br><br>
+
+Şu an senden hemen affetmeni ya da her şeyi unutmanı beklemiyorum. Güven kırıldığında sözlerin tek başına yeterli olmadığını biliyorum. Sadece şunu bilmeni istiyorum; yaptığım hataların farkındayım ve onları tekrar etmemek için kendim üzerinde çalışmaya kararlıyım.<br><br>
+
+Sen benim için çok değerli bir insansın. Birlikte yaşadığımız güzel anların, paylaştığımız duyguların ve bana kattığın her şeyin kıymetini biliyorum. Seni kırdığım için gerçekten üzgünüm.<br><br>
+
+Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti.<br><br>
+
+Her şey için teşekkür ederim seni çok sevdim, çok seviyorum.
+</p>
+
+<div class="signature">❤️ Umut</div>
+
+</div>
 
 </body>
 </html>
