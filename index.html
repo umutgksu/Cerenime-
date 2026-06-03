@@ -17,9 +17,6 @@ font-family:'Segoe UI';
 background: linear-gradient(180deg, #0d1b2a, #1b263b, #415a77);
 color:white;
 overflow-x:hidden;
-display:flex;
-justify-content:center;
-padding:30px 15px;
 }
 
 /* 💥 INTRO */
@@ -40,12 +37,6 @@ z-index:9999;
 color:#a78bfa;
 font-size:34px;
 text-shadow:0 0 20px #7c4dff;
-animation:fade 1.5s ease;
-}
-
-@keyframes fade{
-from{opacity:0; transform:scale(0.8);}
-to{opacity:1; transform:scale(1);}
 }
 
 /* 💜 KALP & YILDIZ */
@@ -53,7 +44,6 @@ to{opacity:1; transform:scale(1);}
 position:fixed;
 bottom:-20px;
 color:#b388ff;
-text-shadow:0 0 10px #b388ff,0 0 25px #7c4dff;
 font-size:20px;
 animation:floatUp 7s linear infinite;
 opacity:1;
@@ -68,7 +58,6 @@ opacity:1;
 .star{
 position:fixed;
 color:#d1c4ff;
-text-shadow:0 0 10px #ffffff,0 0 20px #b388ff;
 font-size:12px;
 animation:twinkle 3s infinite;
 opacity:0.9;
@@ -78,36 +67,42 @@ opacity:0.9;
 50%{opacity:0.3; transform:scale(1.3);}
 }
 
-/* 💎 CONTAINER */
-.container{
-max-width:550px;
-width:100%;
-text-align:center;
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(10px);
+/* 💎 LAYOUT DÜZEN */
+.wrapper{
+max-width:650px;
+margin:auto;
 padding:25px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,0.1);
+text-align:center;
 }
 
-/* BAŞLIK */
+/* BAŞLIK + MESAJ ÜSTTE */
 h1{
 color:#a78bfa;
 margin-bottom:10px;
 }
 
-/* ALT BAŞLIK */
-.subtitle{
-margin:10px 0;
-color:#d8b4fe;
+.message{
+margin-top:15px;
+margin-bottom:25px;
+line-height:1.7;
+color:#e0e0e0;
+text-align:left;
+background:rgba(255,255,255,0.03);
+padding:15px;
+border-radius:15px;
+backdrop-filter:blur(10px);
 }
 
-/* 📸 GALERİ */
+/* 🎵 MÜZİK */
+.audio{
+margin:15px 0;
+}
+
+/* 📸 FOTOĞRAF GALERİ */
 .gallery{
 display:flex;
 flex-direction:column;
 gap:15px;
-margin-top:10px;
 }
 
 .gallery img{
@@ -115,14 +110,6 @@ width:100%;
 height:350px;
 object-fit:cover;
 border-radius:15px;
-}
-
-/* 💬 MESAJ */
-.message{
-margin-top:20px;
-line-height:1.7;
-color:#e0e0e0;
-text-align:left;
 }
 
 .signature{
@@ -141,12 +128,7 @@ text-align:center;
 <h1>Ceren ❤️</h1>
 </div>
 
-<!-- 🎵 MÜZİK -->
-<audio autoplay loop controls>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 💜 KALPLER + YILDIZLAR -->
+<!-- 💜 EFEKTLER -->
 <script>
 for(let i=0;i<60;i++){
 let h=document.createElement("div");
@@ -169,16 +151,38 @@ document.body.appendChild(s);
 /* intro kapat */
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
-},3000);
+},2500);
 </script>
 
-<!-- 💎 MAIN -->
-<div class="container">
+<div class="wrapper">
 
+<!-- 🎵 MÜZİK (AUTOPLAY FIX) -->
+<div class="audio">
+<audio id="music" controls loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<!-- 📝 MESAJ ÜSTTE -->
 <h1>Ceren ❤️</h1>
-<p class="subtitle">Bu sayfayı sadece senin için hazırladım.</p>
 
-<!-- 📸 FOTOĞRAFLAR -->
+<div class="message">
+Ceren;<br><br>
+
+Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
+
+Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum.<br><br>
+
+Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini daha iyi anladım.<br><br>
+
+Şu an senden hemen affetmeni beklemiyorum. Sadece bilmeni istiyorum ki yaptığım hataların farkındayım.<br><br>
+
+Seni kırdığım için gerçekten üzgünüm.<br><br>
+
+Her şey için teşekkür ederim, seni çok sevdim, çok seviyorum.
+</div>
+
+<!-- 📸 FOTOĞRAFLAR AŞAĞIDA -->
 <div class="gallery">
 
 <img src="IMG_4355.jpeg">
@@ -188,25 +192,6 @@ document.getElementById("intro").style.display="none";
 <img src="82646d45-29de-4fde-b956-3f883f35ceef.jpeg">
 
 </div>
-
-<!-- 💬 TAM MESAJ -->
-<p class="message">
-Ceren;<br><br>
-
-Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
-
-Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum. O anlarda ne düşündüğüm ya da neden yaptığım önemli değil; sonuçta seni üzdüm ve bunun sorumluluğu tamamen bana ait.<br><br>
-
-Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini daha iyi anladım. Ama bunu yaşamak zorunda bırakmamam gerekiyordu. Keşke sana sevgimi sözlerle değil, davranışlarımla daha iyi gösterebilseydim.<br><br>
-
-Şu an senden hemen affetmeni ya da her şeyi unutmanı beklemiyorum. Güven kırıldığında sözlerin tek başına yeterli olmadığını biliyorum. Sadece şunu bilmeni istiyorum; yaptığım hataların farkındayım ve onları tekrar etmemek için kendim üzerinde çalışmaya kararlıyım.<br><br>
-
-Sen benim için çok değerli bir insansın. Birlikte yaşadığımız güzel anların, paylaştığımız duyguların ve bana kattığın her şeyin kıymetini biliyorum. Seni kırdığım için gerçekten üzgünüm.<br><br>
-
-Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti.<br><br>
-
-Her şey için teşekkür ederim seni çok sevdim, çok seviyorum.
-</p>
 
 <div class="signature">❤️ Umut</div>
 
