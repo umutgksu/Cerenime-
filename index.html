@@ -6,67 +6,58 @@
 <title>Ceren ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:'Segoe UI';
-background: linear-gradient(180deg, #0d1b2a, #1b263b, #415a77);
+font-family:Segoe UI;
+background:linear-gradient(180deg,#0d1b2a,#1b263b,#415a77);
 color:white;
 overflow-x:hidden;
 }
 
-/* 💥 INTRO */
+/* INTRO */
 #intro{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:#050816;
 display:flex;
 justify-content:center;
 align-items:center;
 z-index:9999;
 opacity:1;
-transition:opacity 1.2s ease;
+transition:opacity 1s ease;
 }
 
 #intro h1{
 color:#a78bfa;
 font-size:34px;
-text-shadow:0 0 20px #7c4dff;
 }
 
-/* 💜 EFFECTS */
-.heart{
+/* EFFECTS */
+.heart,.star{
 position:fixed;
+pointer-events:none;
+}
+
+.heart{
 bottom:-20px;
 color:#b388ff;
-font-size:20px;
-animation:floatUp 7s linear infinite;
-opacity:1;
-}
-
-@keyframes floatUp{
-0%{transform:translateY(0);opacity:0;}
-20%{opacity:1;}
-100%{transform:translateY(-120vh);opacity:0;}
+animation:up 7s linear infinite;
 }
 
 .star{
-position:fixed;
 color:#d1c4ff;
-font-size:12px;
 animation:twinkle 3s infinite;
-opacity:0.9;
+}
+
+@keyframes up{
+0%{transform:translateY(0);opacity:0}
+20%{opacity:1}
+100%{transform:translateY(-120vh);opacity:0}
 }
 
 @keyframes twinkle{
-50%{opacity:0.3; transform:scale(1.3);}
+50%{opacity:.3;transform:scale(1.3)}
 }
 
 /* LAYOUT */
@@ -77,35 +68,17 @@ padding:25px;
 text-align:center;
 }
 
-/* MESSAGE */
 .message{
 margin-top:15px;
-margin-bottom:25px;
-line-height:1.8;
-color:#e0e0e0;
 text-align:left;
+line-height:1.8;
 background:rgba(255,255,255,0.03);
 padding:18px;
 border-radius:15px;
-backdrop-filter:blur(10px);
 }
 
-/* GALLERY */
-.gallery{
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-.gallery img{
-width:100%;
-height:350px;
-object-fit:cover;
-border-radius:15px;
-}
-
-/* MUSIC BOX */
-.music-box{
+/* MUSIC */
+.music{
 margin:15px 0;
 }
 
@@ -117,36 +90,82 @@ border-radius:10px;
 color:white;
 cursor:pointer;
 margin:5px;
-font-weight:bold;
 }
-button:hover{
-background:#7c4dff;
+
+.gallery img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:15px;
+margin-top:10px;
 }
 
 .signature{
 margin-top:20px;
 color:#a78bfa;
-font-weight:bold;
-text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 💥 INTRO -->
-<div id="intro">
-<h1>Ceren ❤️</h1>
-</div>
+<div id="intro"><h1>Ceren ❤️</h1></div>
 
-<!-- 🎵 MUSIC -->
 <audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💜 EFFECTS -->
+<div class="wrapper">
+
+<div class="music">
+<button onclick="document.getElementById('music').play()">▶ Play</button>
+<button onclick="document.getElementById('music').pause()">⏸ Pause</button>
+</div>
+
+<h1>Ceren ❤️</h1>
+
+<div class="message">
+
+Ceren,<br><br>
+
+Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
+
+Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum.<br><br>
+
+Seni kaybetme ihtimaliyle yüzleşince değerini daha iyi anladım.<br><br>
+
+Seni kırdığım için üzgünüm.<br><br>
+
+Seni çok sevdim, sevmeye devam edeceğim.
+
+</div>
+
+<div class="gallery">
+<img src="IMG_4355.jpeg">
+<img src="IMG_5516.png">
+<img src="8EA530C6-B4A0-436F-AFE1-9A8E8A2EA225.png">
+<img src="6ca7babd-6ae1-4cb3-90d3-aabbb54c514a.jpeg">
+<img src="82646d45-29de-4fde-b956-3f883f35ceef.jpeg">
+</div>
+
+<div class="signature">❤️ Umut</div>
+
+</div>
+
 <script>
-for(let i=0;i<60;i++){
+window.onload=function(){
+
+const music=document.getElementById("music");
+music.play().catch(()=>{});
+
+setTimeout(()=>{
+let intro=document.getElementById("intro");
+intro.style.opacity="0";
+setTimeout(()=>intro.remove(),1000);
+},2000);
+
+/* effects */
+for(let i=0;i<50;i++){
 let h=document.createElement("div");
 h.className="heart";
 h.innerHTML="💜";
@@ -155,7 +174,7 @@ h.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(h);
 }
 
-for(let i=0;i<70;i++){
+for(let i=0;i<50;i++){
 let s=document.createElement("div");
 s.className="star";
 s.innerHTML="✦";
@@ -163,64 +182,6 @@ s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
-</script>
-
-<div class="wrapper">
-
-<!-- 🎵 MUSIC CONTROL (GARANTİ) -->
-<div class="music-box">
-<button onclick="document.getElementById('music').play()">▶ Müziği Başlat</button>
-<button onclick="document.getElementById('music').pause()">⏸ Duraklat</button>
-</div>
-
-<h1>Ceren ❤️</h1>
-
-<div class="message">
-Ceren,<br><br>
-
-Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
-
-Sana yaşattığım kırgınlıkların farkındayım...<br><br>
-
-Seni kırdığım için gerçekten üzgünüm.<br><br>
-
-Seni çok sevdim ve sevmeye devam edeceğim.
-</div>
-
-<div class="gallery">
-
-<img src="IMG_4355.jpeg">
-<img src="IMG_5516.png">
-<img src="8EA530C6-B4A0-436F-AFE1-9A8E8A2EA225.png">
-<img src="6ca7babd-6ae1-4cb3-90d3-aabbb54c514a.jpeg">
-<img src="82646d45-29de-4fde-b956-3f883f35ceef.jpeg">
-
-</div>
-
-<div class="signature">❤️ Umut</div>
-
-</div>
-
-<!-- 🚀 FADE OUT + AUTOPLAY FIX -->
-<script>
-window.onload = function(){
-
-  const music = document.getElementById("music");
-
-  // 🎵 autoplay dene
-  music.volume = 1;
-  music.play().catch(()=>{});
-
-  // 💥 intro fade out
-  setTimeout(()=>{
-    const intro = document.getElementById("intro");
-    intro.style.opacity = "0";
-
-    setTimeout(()=>{
-      intro.style.display = "none";
-    },1200);
-
-  },2000);
 
 };
 </script>
