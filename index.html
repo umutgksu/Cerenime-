@@ -183,7 +183,6 @@
             font-size: 1.1rem;
         }
 
-        /* Küçük ekranlar için uyumluluk */
         @media (max-width: 500px) {
             .container { padding: 25px 20px; }
             .slider-wrapper { height: 260px; }
@@ -194,11 +193,13 @@
 <body>
 
     <div class="background-decorations">
+        <!-- Kalpler -->
         <svg class="shape" style="top: 10%; left: 8%; width: 25px; height: 25px; animation-delay: 0s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <svg class="shape" style="top: 25%; right: 12%; width: 35px; height: 35px; animation-delay: 2s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <svg class="shape" style="top: 70%; left: 5%; width: 30px; height: 30px; animation-delay: 4s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <svg class="shape" style="top: 85%; right: 8%; width: 22px; height: 22px; animation-delay: 1s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
 
+        <!-- Yıldızlar -->
         <svg class="shape" style="top: 15%; right: 25%; width: 20px; height: 20px; animation-delay: 3s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         <svg class="shape" style="top: 45%; left: 15%; width: 25px; height: 25px; animation-delay: 5s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         <svg class="shape" style="top: 60%; right: 20%; width: 18px; height: 18px; animation-delay: 1.5s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -206,60 +207,65 @@
 
     <div class="container">
         
+        <!-- Müzik Alanı -->
         <div class="audio-container">
-            <audio id="bgMusic" src="muzik.mp3" loop></audio>
+            <audio id="bgMusic" src="muzik.mp3" loop prefetch="auto"></audio>
             <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
                 <span>🎵 Müziği Başlat</span>
             </button>
         </div>
 
+        <!-- Fotoğraf Kaydırıcı Bölümü -->
         <div class="slider-section">
             <h2 class="slider-title">Anılarımız ve daha niceleri</h2>
             <div class="slider-wrapper">
                 <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="slides" id="slidesContainer">
-                    <img src="foto1.jpg" alt="Anı 1" class="slide">
-                    <img src="foto2.jpg" alt="Anı 2" class="slide">
-                    <img src="foto3.jpg" alt="Anı 3" class="slide">
-                    <img src="foto4.jpg" alt="Anı 4" class="slide">
+                    <!-- GitHub'da büyük/küçük harf hassasiyeti için alternatifleri buraya göre düzenle -->
+                    <img src="foto1.jpg" alt="Anı 1" class="slide" onerror="this.src='foto1.JPG'">
+                    <img src="foto2.jpg" alt="Anı 2" class="slide" onerror="this.src='foto2.JPG'">
+                    <img src="foto3.jpg" alt="Anı 3" class="slide" onerror="this.src='foto3.JPG'">
+                    <img src="foto4.jpg" alt="Anı 4" class="slide" onerror="this.src='foto4.JPG'">
                 </div>
                 <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
             </div>
         </div>
 
+        <!-- Mektup İçeriği -->
         <div class="letter-text">
             <p><strong>Ceren,</strong></p>
-            
             <p>Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.</p>
-            
             <p>Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum. O anlarda ne düşündüğüm ya da neden yaptığım önemli değil; sonuçta seni üzdüm ve bunun sorumluluğu tamamen bana ait.</p>
-            
             <p>Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini daha iyi anladım. Ama bunu yaşamak zorunda bırakmamam gerekiyordu. Keşke sana sevgimi sözlerle değil, davranışlarımla daha iyi gösterebilseydim.</p>
-            
             <p>Şu an senden hemen affetmeni ya da her şeyi unutmanı beklemiyorum. Güven kırıldığında sözlerin tek başına yeterli olmadığını biliyorum. Sadece şunu bilmeni istiyorum; yaptığım hataların farkındayım ve onları tekrar etmemek için kendim üzerinde çalışmaya kararlıyım. Çünkü değişmek istediğim için değil, değişmem gerektiğini anladığım için bunu yapacağım.</p>
-            
             <p>Sen benim için çok değerli bir insansın. Birlikte yaşadığımız güzel anların, paylaştığımız duyguların ve bana kattığın her şeyin kıymetini biliyorum. Seni kırdığım için gerçekten üzgünüm.</p>
-            
             <p>Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti. Çok özür dilerim..</p>
-            
             <p>Seni çok sevdim her zaman seveceğim her şey için teşekkür ederim Ceren.</p>
-            
             <div class="signature">Umut</div>
         </div>
 
     </div>
 
     <script>
-        // Müzik Açma / Kapatma Fonksiyonu
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
 
         function toggleMusic() {
             if (music.paused) {
+                // Alternatif büyük harfli dosya ismini denemek için hata yakalama ekledik
                 music.play().then(() => {
                     musicBtn.innerHTML = "<span>⏸️ Müziği Durdur</span>";
                 }).catch(err => {
-                    alert("Müzik dosyası oynatılamadı. 'muzik.mp3' dosyasının doğru yerde olduğundan ve tarayıcı izinlerinizden emin olun.");
+                    // Eğer muzik.mp3 açılmazsa büyük harfli versiyonunu dene
+                    if(music.getAttribute('src') === 'muzik.mp3') {
+                        music.setAttribute('src', 'muzik.MP3');
+                        music.load();
+                        music.play().then(() => {
+                            musicBtn.innerHTML = "<span>⏸️ Müziği Durdur</span>";
+                        }).catch(e => {
+                            alert("Müzik dosyası bulunamadı. Lütfen GitHub paneline 'muzik.mp3' veya 'muzik.MP3' isimli bir ses dosyası yüklediğinizden emin olun.");
+                        });
+                    }
                 });
             } else {
                 music.pause();
@@ -267,27 +273,19 @@
             }
         }
 
-        // Fotoğraf Slider Fonksiyonu
         let currentSlide = 0;
         const slides = document.getElementById('slidesContainer');
         const totalSlides = document.querySelectorAll('.slide').length;
 
         function moveSlide(direction) {
             currentSlide += direction;
-            
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            }
-            
+            if (currentSlide >= totalSlides) { currentSlide = 0; } 
+            else if (currentSlide < 0) { currentSlide = totalSlides - 1; }
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
-        // Otomatik kayma (Her 4 saniyede bir değiştirir)
-        setInterval(() => {
-            moveSlide(1);
-        }, 4000);
+        setInterval(() => { moveSlide(1); }, 4000);
     </script>
 </body>
 </html>
+
