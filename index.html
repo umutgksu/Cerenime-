@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceren'e Özür Mesajı</title>
+    <!-- Premium Yazı Tipi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #060d1a; /* Daha derin, lüks bir gece mavisi */
-            --card-bg: rgba(11, 22, 44, 0.75);
-            --text-color: #f1f5f9; /* Daha temiz bir beyaz tonu */
+            --bg-color: #040814; /* Daha da derinleştirilmiş sinematik gece siyahı */
+            --card-bg: rgba(9, 17, 32, 0.8);
+            --text-color: #f8fafc;
             --accent-purple: #a855f7;
             --accent-blue: #3b82f6;
-            --heart-star-color: rgba(232, 193, 255, 0.6);
+            --heart-star-color: rgba(235, 200, 255, 0.65);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif; /* Premium Font uygulandı */
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at center, #0f172a 0%, var(--bg-color) 100%);
+            background: radial-gradient(circle at center, #0b1329 0%, var(--bg-color) 100%);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -37,13 +38,33 @@
             padding: 60px 20px;
         }
 
-        /* PREMIUM SÜZÜLEN ELEMANLAR (Z-INDEX & GLOW GÜNCELLENDİ) */
+        /* 1. GELİŞTİRME: ARKA PLANDA YANIP SÖNEN MİKRO YILDIZLAR (TWINKLING STARS) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.4;
+            animation: starTwinkle 10s infinite linear;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes starTwinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
+
+        /* EN ÖN KATMAN SÜZÜLEN ELEMANLAR */
         .bg-decorations {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             overflow: hidden;
             pointer-events: none;
             z-index: 999;
@@ -57,85 +78,70 @@
             bottom: -100px;
         }
 
-        /* Neon Parıltılı Kalp */
+        /* Parlayan Kalp */
         .heart {
             background-color: var(--heart-star-color);
             display: inline-block;
-            height: 20px;
-            margin: 0 10px;
-            position: relative;
-            transform: rotate(-45deg);
-            width: 20px;
-            filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.5));
+            height: 18px; margin: 0 10px; position: relative;
+            transform: rotate(-45deg); width: 18px;
+            filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.6));
         }
         .heart:before, .heart:after {
-            content: "";
-            background-color: var(--heart-star-color);
-            border-radius: 50%;
-            height: 20px;
-            position: absolute;
-            width: 20px;
+            content: ""; background-color: var(--heart-star-color);
+            border-radius: 50%; height: 18px; position: absolute; width: 18px;
         }
-        .heart:before { top: -10px; left: 0; }
-        .heart:after { left: 10px; top: 0; }
+        .heart:before { top: -9px; left: 0; }
+        .heart:after { left: 9px; top: 0; }
 
-        /* Neon Parıltılı Yıldız */
+        /* Parlayan Yıldız */
         .star {
-            position: relative;
-            display: inline-block;
-            color: var(--heart-star-color);
-            width: 0px;
-            height: 0px;
-            border-right: 12px solid transparent;
-            border-bottom: 8px solid var(--heart-star-color);
-            border-left: 12px solid transparent;
+            position: relative; display: inline-block; color: var(--heart-star-color);
+            width: 0px; height: 0px;
+            border-right: 12px solid transparent; border-bottom: 8px solid var(--heart-star-color); border-left: 12px solid transparent;
             transform: rotate(35deg);
-            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
         }
         .star:before {
-            border-bottom: 10px solid var(--heart-star-color);
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            position: absolute;
-            height: 0; width: 0; top: -6px; left: -8px;
-            content: ''; transform: rotate(-35deg);
+            border-bottom: 10px solid var(--heart-star-color); border-left: 3px solid transparent; border-right: 3px solid transparent;
+            position: absolute; height: 0; width: 0; top: -6px; left: -8px; content: ''; transform: rotate(-35deg);
         }
         .star:after {
-            position: absolute;
-            display: block;
-            color: var(--heart-star-color);
+            position: absolute; display: block; color: var(--heart-star-color);
             top: 1px; left: -13px; width: 0px; height: 0px;
-            border-right: 12px solid transparent;
-            border-bottom: 8px solid var(--heart-star-color);
-            border-left: 12px solid transparent;
+            border-right: 12px solid transparent; border-bottom: 8px solid var(--heart-star-color); border-left: 12px solid transparent;
             transform: rotate(-70deg); content: '';
         }
 
         @keyframes floatAnimation {
-            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
+            0% { transform: translateY(0) rotate(0deg) scale(0.7); opacity: 0; }
+            15% { opacity: 0.8; }
+            85% { opacity: 0.8; }
             100% { transform: translateY(-125vh) rotate(360deg) scale(1.1); opacity: 0; }
         }
 
-        /* PREMIUM CAM KONTEYNER (Glassmorphic Card) */
+        /* 2. GELİŞTİRME: CANLI NEON GEÇİŞLİ PREMIUM KONTEYNER */
         .container {
             max-width: 620px;
             width: 100%;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(10, 18, 36, 0.85) 0%, rgba(21, 32, 54, 0.75) 100%);
             padding: 50px 40px;
             border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 10;
             position: relative;
             margin-bottom: 30px;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            animation: pulseGlow 8s infinite alternate; /* Kutu etrafında yavaşça soluyan ışık */
         }
 
-        /* Müzik Butonu - Premium Parıltı Efektli */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 15px rgba(168, 85, 247, 0.05); border-color: rgba(168, 85, 247, 0.1); }
+            100% { box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.25); }
+        }
+
+        /* Müzik Butonu - Nabız Animasyonlu */
         .audio-container {
             text-align: center;
             margin-bottom: 40px;
@@ -150,28 +156,46 @@
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             gap: 12px;
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Buton üstündeki akan premium ışık çizgisi */
+        .music-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%; width: 30%; height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: 0s;
+            animation: shimmerBtn 3.5s infinite linear;
+        }
+
+        @keyframes shimmerBtn {
+            0% { left: -60%; }
+            100% { left: 140%; }
         }
 
         .music-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 28px rgba(124, 58, 237, 0.6);
         }
 
-        /* Fotoğraf Slider Alanı */
+        /* Fotoğraf Slider Bölümü */
         .slider-section {
             margin-bottom: 40px;
         }
 
         .slider-title {
             text-align: center;
-            font-size: 1.4rem;
-            color: #c084fc;
+            font-size: 1.35rem;
+            color: #d8b4fe;
             margin-bottom: 22px;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -184,15 +208,31 @@
             height: 390px;
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 3. GELİŞTİRME: FOTOĞRAFLARIN ÜZERİNE SİNEMATİK IŞIK SIZMASI (LIGHT LEAK OVERLAY) */
+        .slider-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(125deg, rgba(255,255,255,0.08) 0%, rgba(168, 85, 247, 0.05) 40%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: 5;
+            animation: lightLeak 6s infinite alternate ease-in-out;
+        }
+
+        @keyframes lightLeak {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); filter: hue-rotate(20deg); }
         }
 
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Daha akıcı premium geçiş */
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* İnanılmaz akıcı geçiş efekti */
         }
 
         .slide {
@@ -205,18 +245,16 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
+            background: rgba(10, 15, 30, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             color: white;
             border: 1px solid rgba(255,255,255,0.1);
-            width: 44px;
-            height: 44px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: all 0.3s;
             z-index: 12;
         }
@@ -224,30 +262,33 @@
         .slider-btn:hover {
             background: #7c3aed;
             border-color: transparent;
-            transform: translateY(-50%) scale(1.05);
+            transform: translateY(-50%) scale(1.08);
         }
 
         .prev-btn { left: 14px; }
         .next-btn { right: 14px; }
 
-        /* Premium Mektup Metni */
+        /* Mektup Metni */
         .letter-text {
-            line-height: 1.9;
+            line-height: 1.95;
             font-size: 1.05rem;
             text-align: justify;
             white-space: pre-line;
-            color: #cbd5e1; /* Gözü yormayan yumuşak fildişi/gri */
+            color: #cbd5e1;
             font-weight: 400;
         }
 
         .letter-text p {
             margin-bottom: 24px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Yazıların arkasına hafif gölge, okunurluk için */
         }
 
         .letter-text strong {
-            color: #f8fafc;
-            font-size: 1.2rem;
+            color: #ffffff;
+            font-size: 1.25rem;
             letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 5px;
         }
 
         .signature {
@@ -255,8 +296,9 @@
             text-align: right;
             font-weight: 600;
             color: #c084fc;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
         }
 
         @media (max-width: 500px) {
@@ -269,6 +311,7 @@
 </head>
 <body>
 
+    <!-- Arka ve Ön Planda Süzülen Parlayan Kalpler & Yıldızlar -->
     <div class="bg-decorations">
         <div class="floating-item heart" style="left: 7%; animation-duration: 15s; animation-delay: 0s; transform: scale(0.8);"></div>
         <div class="floating-item star" style="left: 24%; animation-duration: 19s; animation-delay: 2s; transform: scale(0.7);"></div>
@@ -285,6 +328,7 @@
 
     <div class="container">
         
+        <!-- Müzik Alanı -->
         <div class="audio-container">
             <audio id="bgMusic" src="muzik.mp3" loop preload="auto"></audio>
             <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
@@ -292,6 +336,7 @@
             </button>
         </div>
 
+        <!-- Fotoğraf Kaydırıcı Bölümü -->
         <div class="slider-section">
             <h2 class="slider-title">Anılarımız ve daha niceleri</h2>
             <div class="slider-wrapper">
@@ -306,6 +351,7 @@
             </div>
         </div>
 
+        <!-- Mektup İçeriği -->
         <div class="letter-text">
             <p><strong>Ceren,</strong></p>
             <p>Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.</p>
@@ -351,7 +397,6 @@
             });
         }
 
-        // Akıllı Otomatik Başlatma
         function autoPlayMusic() {
             if (!isMusicPlaying) {
                 tryPlaying();
@@ -364,7 +409,6 @@
         document.addEventListener('touchstart', autoPlayMusic);
         document.addEventListener('scroll', autoPlayMusic);
 
-        // Fotoğraf Uzantı Kontrolü
         function fixImages() {
             const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG'];
             for (let i = 1; i <= 4; i++) {
@@ -380,7 +424,6 @@
         }
         fixImages();
 
-        // Slider Kontrolü (Daha Premium Yumuşak Geçiş Süresi)
         let currentSlide = 0;
         const slides = document.getElementById('slidesContainer');
         const totalSlides = 4;
@@ -391,7 +434,7 @@
             else if (currentSlide < 0) { currentSlide = totalSlides - 1; }
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
-        setInterval(() => { moveSlide(1); }, 4500); // Premium akış için süre hafif artırıldı
+        setInterval(() => { moveSlide(1); }, 4500);
     </script>
 </body>
 </html>
