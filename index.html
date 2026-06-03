@@ -31,6 +31,8 @@ display:flex;
 justify-content:center;
 align-items:center;
 z-index:9999;
+opacity:1;
+transition:opacity 1.2s ease;
 }
 
 #intro h1{
@@ -75,9 +77,17 @@ padding:25px;
 text-align:center;
 }
 
-/* MUSIC */
-.music-box{
-margin:15px 0;
+/* MESSAGE */
+.message{
+margin-top:15px;
+margin-bottom:25px;
+line-height:1.8;
+color:#e0e0e0;
+text-align:left;
+background:rgba(255,255,255,0.03);
+padding:18px;
+border-radius:15px;
+backdrop-filter:blur(10px);
 }
 
 /* GALLERY */
@@ -94,7 +104,25 @@ object-fit:cover;
 border-radius:15px;
 }
 
-/* SIGN */
+/* MUSIC BOX */
+.music-box{
+margin:15px 0;
+}
+
+button{
+background:#a78bfa;
+border:none;
+padding:10px 14px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+margin:5px;
+font-weight:bold;
+}
+button:hover{
+background:#7c4dff;
+}
+
 .signature{
 margin-top:20px;
 color:#a78bfa;
@@ -139,30 +167,26 @@ document.body.appendChild(s);
 
 <div class="wrapper">
 
+<!-- 🎵 MUSIC CONTROL (GARANTİ) -->
+<div class="music-box">
+<button onclick="document.getElementById('music').play()">▶ Müziği Başlat</button>
+<button onclick="document.getElementById('music').pause()">⏸ Duraklat</button>
+</div>
+
 <h1>Ceren ❤️</h1>
 
-<!-- 📝 ONLY MESSAGE UPDATED -->
-<p style="text-align:left; background:rgba(255,255,255,0.03); padding:18px; border-radius:15px; line-height:1.8;">
-
+<div class="message">
 Ceren,<br><br>
 
 Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
 
-Sana yaşattığım kırgınlıkların farkındayım. Aynı hatayı birden fazla kez yaparak sana verdiğim güveni sarstım ve bunun hiçbir bahanesi olmadığını biliyorum. O anlarda ne düşündüğüm ya da neden yaptığım önemli değil; sonuçta seni üzdüm ve bunun sorumluluğu tamamen bana ait.<br><br>
+Sana yaşattığım kırgınlıkların farkındayım...<br><br>
 
-Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini daha iyi anladım. Ama bunu yaşamak zorunda bırakmamam gerekiyordu. Keşke sana sevgimi sözlerle değil, davranışlarımla daha iyi gösterebilseydim.<br><br>
+Seni kırdığım için gerçekten üzgünüm.<br><br>
 
-Şu an senden hemen affetmeni ya da her şeyi unutmanı beklemiyorum. Güven kırıldığında sözlerin tek başına yeterli olmadığını biliyorum. Sadece şunu bilmeni istiyorum; yaptığım hataların farkındayım ve onları tekrar etmemek için kendim üzerinde çalışmaya kararlıyım. Çünkü değişmek istediğim için değil, değişmem gerektiğini anladığım için bunu yapacağım.<br><br>
+Seni çok sevdim ve sevmeye devam edeceğim.
+</div>
 
-Sen benim için çok değerli bir insansın. Birlikte yaşadığımız güzel anların, paylaştığımız duyguların ve bana kattığın her şeyin kıymetini biliyorum. Seni kırdığım için gerçekten üzgünüm.<br><br>
-
-Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti.<br><br>
-
-Seni çok sevdim ve çok seviyorum her şey için teşekkür ederim.
-
-</p>
-
-<!-- 📸 PHOTOS -->
 <div class="gallery">
 
 <img src="IMG_4355.jpeg">
@@ -176,6 +200,30 @@ Seni çok sevdim ve çok seviyorum her şey için teşekkür ederim.
 <div class="signature">❤️ Umut</div>
 
 </div>
+
+<!-- 🚀 FADE OUT + AUTOPLAY FIX -->
+<script>
+window.onload = function(){
+
+  const music = document.getElementById("music");
+
+  // 🎵 autoplay dene
+  music.volume = 1;
+  music.play().catch(()=>{});
+
+  // 💥 intro fade out
+  setTimeout(()=>{
+    const intro = document.getElementById("intro");
+    intro.style.opacity = "0";
+
+    setTimeout(()=>{
+      intro.style.display = "none";
+    },1200);
+
+  },2000);
+
+};
+</script>
 
 </body>
 </html>
