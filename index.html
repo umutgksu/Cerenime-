@@ -14,19 +14,23 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
-background:linear-gradient(180deg,#1a237e,#283593,#3949ab);
+
+/* 🌌 DAHA DERİN MAVİ ARKA PLAN */
+background: radial-gradient(circle at top, #0b0f3a, #050816, #030412);
+
 overflow-x:hidden;
 color:white;
 }
 
-/* Kalpler */
+/* 💜 KALPLER (MOR NEON) */
 .heart{
 position:fixed;
 bottom:-20px;
 color:#b388ff;
-font-size:20px;
+text-shadow:0 0 10px #b388ff,0 0 20px #7c4dff;
+font-size:18px;
 animation:float 10s linear infinite;
-opacity:.8;
+opacity:.9;
 }
 
 @keyframes float{
@@ -35,16 +39,17 @@ opacity:.8;
 100%{transform:translateY(-120vh);opacity:0;}
 }
 
-/* Yıldızlar */
+/* ✨ YILDIZLAR (AÇIK MOR PARLAK) */
 .star{
 position:fixed;
-color:#d1c4e9;
+color:#d1c4ff;
+text-shadow:0 0 8px #d1c4ff;
 animation:twinkle 3s infinite;
 opacity:.7;
 }
 
 @keyframes twinkle{
-50%{opacity:.2;}
+50%{opacity:.2; transform:scale(1.2);}
 }
 
 /* container */
@@ -60,13 +65,14 @@ z-index:10;
 font-size:45px;
 text-align:center;
 margin-top:20px;
+text-shadow:0 0 10px #7c4dff;
 }
 
 .subtitle{
 text-align:center;
 font-size:18px;
 margin-top:10px;
-color:#e1bee7;
+color:#c5b3ff;
 }
 
 /* music */
@@ -81,6 +87,7 @@ position:relative;
 overflow:hidden;
 border-radius:20px;
 margin:30px 0;
+box-shadow:0 0 25px rgba(124,77,255,.4);
 }
 
 .slides{
@@ -90,7 +97,7 @@ transition:transform 0.5s ease;
 
 .slides img{
 width:100%;
-height:400px;
+height:420px;
 object-fit:cover;
 flex-shrink:0;
 border-radius:20px;
@@ -100,12 +107,13 @@ border-radius:20px;
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:rgba(0,0,0,0.4);
+background:rgba(124,77,255,.4);
 border:none;
 color:white;
 font-size:25px;
-padding:10px;
+padding:10px 14px;
 cursor:pointer;
+border-radius:10px;
 }
 
 .prev{left:10px;}
@@ -115,21 +123,25 @@ cursor:pointer;
 text-align:center;
 font-size:28px;
 margin:20px 0;
-color:#e1bee7;
+color:#d1c4ff;
+text-shadow:0 0 10px #7c4dff;
 }
 
 .message{
-background:rgba(255,255,255,.1);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
 padding:25px;
 border-radius:20px;
 line-height:1.8;
+border:1px solid rgba(124,77,255,.2);
 }
 
 .footer{
 text-align:center;
 margin-top:30px;
 font-size:22px;
+color:#d1c4ff;
+text-shadow:0 0 10px #7c4dff;
 }
 </style>
 </head>
@@ -149,7 +161,7 @@ font-size:22px;
 <h1 class="title">Ceren ❤️</h1>
 <p class="subtitle">Sana söylemek istediklerim...</p>
 
-<h2 class="memories">Anılarımız ve Nicelerine ❤️</h2>
+<h2 class="memories">Anılarımız ve Nicelerine 💜</h2>
 
 <!-- SLIDER -->
 <div class="slider">
@@ -169,38 +181,36 @@ font-size:22px;
 </div>
 
 <div class="message">
-
 <p>Bu mesajı seni ikna etmek için değil, sorumluluğumu yerine getirmek için yazıyorum.</p>
 <br>
 <p>Sana yaşattığım kırgınlıkların farkındayım ve bunun hiçbir bahanesi yok.</p>
 <br>
 <p>Seni kaybetme ihtimaliyle aslında ne kadar değerli olduğunu daha iyi anladım.</p>
 <br>
-<p>Şu an affetmeni beklemiyorum, sadece içten bir özür bırakıyorum.</p>
+<p>Sadece içten bir özür bırakıyorum.</p>
 <br>
-<p>Seni gerçekten çok seviyorum.</p>
-
+<p>Seni gerçekten çok seviyorum 💜</p>
 </div>
 
 <div class="footer">
-❤️ Umut ❤️
+💜 Umut 💜
 </div>
 
 </div>
 
 <script>
-// kalpler
-for(let i=0;i<40;i++){
+// kalpler (mor neon)
+for(let i=0;i<45;i++){
 let heart=document.createElement("div");
 heart.className="heart";
-heart.innerHTML="❤";
+heart.innerHTML="💜";
 heart.style.left=Math.random()*100+"%";
 heart.style.animationDuration=(6+Math.random()*8)+"s";
 document.body.appendChild(heart);
 }
 
 // yıldızlar
-for(let i=0;i<50;i++){
+for(let i=0;i<60;i++){
 let star=document.createElement("div");
 star.className="star";
 star.innerHTML="✦";
@@ -228,10 +238,11 @@ index=(index-1+total)%total;
 update();
 }
 
-// autoplay ses açma (tarayıcı izin sistemi)
+// müzik başlatma
 window.addEventListener("click",()=>{
-document.getElementById("music").muted=false;
-document.getElementById("music").play();
+const music=document.getElementById("music");
+music.muted=false;
+music.play();
 });
 </script>
 
