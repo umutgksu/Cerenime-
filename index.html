@@ -39,7 +39,7 @@ font-size:34px;
 text-shadow:0 0 20px #7c4dff;
 }
 
-/* 💜 KALP & YILDIZ */
+/* 💜 EFFECTS */
 .heart{
 position:fixed;
 bottom:-20px;
@@ -75,26 +75,12 @@ padding:25px;
 text-align:center;
 }
 
-/* BAŞLIK */
-h1{
-color:#a78bfa;
-margin-bottom:10px;
+/* MUSIC */
+.music-box{
+margin:15px 0;
 }
 
-/* MESAJ */
-.message{
-margin-top:15px;
-margin-bottom:25px;
-line-height:1.8;
-color:#e0e0e0;
-text-align:left;
-background:rgba(255,255,255,0.03);
-padding:18px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-}
-
-/* FOTO */
+/* GALLERY */
 .gallery{
 display:flex;
 flex-direction:column;
@@ -108,6 +94,7 @@ object-fit:cover;
 border-radius:15px;
 }
 
+/* SIGN */
 .signature{
 margin-top:20px;
 color:#a78bfa;
@@ -124,12 +111,12 @@ text-align:center;
 <h1>Ceren ❤️</h1>
 </div>
 
-<!-- 🎵 MÜZİK -->
+<!-- 🎵 MUSIC -->
 <audio id="music" loop>
-<source src="Emre Nalbantoğlu - Hanımefendi.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💜 EFEKTLER -->
+<!-- 💜 EFFECTS -->
 <script>
 for(let i=0;i<60;i++){
 let h=document.createElement("div");
@@ -148,22 +135,15 @@ s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*100+"vh";
 document.body.appendChild(s);
 }
-
-/* intro + müzik */
-setTimeout(()=>{
-document.getElementById("intro").style.display="none";
-
-const music=document.getElementById("music");
-music.play().catch(()=>{});
-
-},2500);
 </script>
 
 <div class="wrapper">
 
 <h1>Ceren ❤️</h1>
 
-<div class="message">
+<!-- 📝 ONLY MESSAGE UPDATED -->
+<p style="text-align:left; background:rgba(255,255,255,0.03); padding:18px; border-radius:15px; line-height:1.8;">
+
 Ceren,<br><br>
 
 Bu mesajı seni ikna etmek için değil, sana karşı olan sorumluluğumu yerine getirmek için yazıyorum.<br><br>
@@ -176,12 +156,13 @@ Seni kaybetme ihtimaliyle yüzleşince aslında hayatımdaki yerini ve değerini
 
 Sen benim için çok değerli bir insansın. Birlikte yaşadığımız güzel anların, paylaştığımız duyguların ve bana kattığın her şeyin kıymetini biliyorum. Seni kırdığım için gerçekten üzgünüm.<br><br>
 
-Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti. Senden çok özür dilerim.<br><br>
+Bundan sonra vereceğin her karara saygı duyacağım. Ama içimde kalan tek şey, sana içtenlikle özür borçlu olduğumu söylemekti.<br><br>
 
-Seni sevdim, sevmeye devam edeceğim. Her şey için teşekkürler Ceren.
-</div>
+Seni çok sevdim ve çok seviyorum her şey için teşekkür ederim.
 
-<!-- 📸 FOTO -->
+</p>
+
+<!-- 📸 PHOTOS -->
 <div class="gallery">
 
 <img src="IMG_4355.jpeg">
